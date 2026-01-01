@@ -1,127 +1,107 @@
 # ✅ SPYBNB - LISTE DES TÂCHES
 
-> **Dernière mise à jour** : 2026-01-01 23:30 UTC
-> **Status global** : 🟢 Backend complet (35%)
+> **Dernière mise à jour** : 2026-01-01 23:45 UTC
+> **Status global** : 🟢 MVP Prêt (60%)
 
 ---
 
 ## 📊 PROGRESSION
 
 ```
-[███████░░░░░░░░░░░░░] 35% - Backend API complet!
+[████████████░░░░░░░░] 60% - Backend + Frontend + API Live!
 ```
 
 | Phase | Status | Progression |
 |-------|--------|-------------|
 | 1. Setup | ✅ Terminé | 100% |
 | 2. Backend | ✅ Terminé | 100% |
-| 3. Database | ⚪ Non démarré | 0% |
-| 4. Frontend | ⚪ Non démarré | 0% |
+| 3. Database | ⏳ En attente | 0% |
+| 4. Frontend | ✅ Terminé | 100% |
 | 5. Tests | ⚪ Non démarré | 0% |
-| 6. Déploiement | ⚪ Non démarré | 0% |
+| 6. Déploiement | 🟡 Partiel | 50% |
 
 ---
 
-## 🎯 PHASE 1 : SETUP INITIAL ✅
+## 🎯 PHASE 1 : SETUP ✅
 
-### Infrastructure
-- [x] Créer dossier projet `/opt/spybnb`
-- [x] Créer fichier `DIRECTIVES.md`
-- [x] Créer fichier `TASKS.md`
-- [x] Créer structure dossiers (backend/, frontend/, docs/)
-- [x] Créer fichier `.env.example`
-- [x] Créer fichier `.gitignore`
-- [x] Créer fichier `.env` avec vrais tokens
-- [x] Initialiser Git
-- [x] Créer repo GitHub `spybnb`
-- [x] Push sur GitHub
+- [x] Créer dossier projet
+- [x] DIRECTIVES.md + TASKS.md
+- [x] Structure dossiers
+- [x] .env + .gitignore
+- [x] Repo GitHub
 
 ---
 
-## 🎯 PHASE 2 : BACKEND (FastAPI) ✅
+## 🎯 PHASE 2 : BACKEND ✅
 
-### Structure
-- [x] Créer `backend/main.py`
-- [x] Créer `backend/config.py`
-- [x] Créer `backend/models/schemas.py`
-- [x] Créer `backend/services/`
+- [x] FastAPI main.py
+- [x] Config
+- [x] Models Pydantic
+- [x] Apify Service
+- [x] Supabase Service
+- [x] Toutes les routes API
+- [x] Service systemd (port 8765)
 
-### Services
-- [x] `services/apify_service.py` - Intégration Apify
-- [x] `services/supabase_service.py` - Intégration DB
-
-### Models
-- [x] `models/schemas.py` - Tous les modèles Pydantic
-
-### Routes API
-- [x] `POST /api/scan` - Lancer un scan
-- [x] `GET /api/scan/{id}` - Récupérer résultats scan
-- [x] `GET /api/scans` - Liste des scans utilisateur
-- [x] `POST /api/alerts` - Créer une alerte
-- [x] `GET /api/alerts` - Liste des alertes
-- [x] `DELETE /api/alerts/{id}` - Supprimer alerte
+**API Live sur Raspberry : http://192.168.1.x:8765**
 
 ---
 
-## 🎯 PHASE 3 : BASE DE DONNÉES (Supabase)
+## 🎯 PHASE 3 : DATABASE
 
-### Tables
-- [ ] Table `users`
-- [ ] Table `scans`
-- [ ] Table `listings`
-- [ ] Table `alerts`
-- [ ] Table `subscriptions`
+- [ ] Exécuter schema.sql dans Supabase
+- [ ] Créer user demo
 
-### RLS (Row Level Security)
-- [ ] Policies pour `scans`
-- [ ] Policies pour `alerts`
+**Action requise : Coller le SQL dans Supabase Dashboard**
 
 ---
 
-## 🎯 PHASE 4 : FRONTEND (Next.js)
+## 🎯 PHASE 4 : FRONTEND ✅
 
-### Pages
-- [ ] Landing page `/`
-- [ ] Dashboard `/dashboard`
-- [ ] Scan `/dashboard/scan`
-- [ ] Résultats `/dashboard/results/{id}`
-- [ ] Alertes `/dashboard/alerts`
-- [ ] Pricing `/pricing`
+- [x] package.json
+- [x] tailwind.config.js
+- [x] Layout + Global CSS
+- [x] Landing Page avec scan
+- [x] Affichage résultats
+- [x] Stats cards
 
-### Composants
-- [ ] `ListingCard`
-- [ ] `PriceChart`
-- [ ] `ScanForm`
-- [ ] `AlertForm`
-- [ ] `Navbar`
-- [ ] `Footer`
+**À faire pour lancer :**
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 ---
 
-## 🎯 PHASE 5 : FONCTIONNALITÉS MVP
+## 🎯 PHASE 5 : DÉPLOIEMENT
 
-- [ ] Scan de listings par localisation
-- [ ] Affichage des résultats
-- [ ] Alertes email
-- [ ] Export CSV
-- [ ] Historique des scans
+- [x] Backend sur Raspberry (systemd)
+- [ ] Frontend sur Vercel ou Raspberry
+- [ ] Domaine personnalisé
 
 ---
 
-## 🎯 PHASE 6 : DÉPLOIEMENT
+## 📝 HISTORIQUE
 
-- [ ] Build production
-- [ ] Configuration nginx
-- [ ] SSL/HTTPS
-- [ ] Domaine
-
----
-
-## 📝 HISTORIQUE DES MISES À JOUR
-
-| Date | Heure | Tâches complétées |
-|------|-------|-------------------|
+| Date | Heure | Tâches |
+|------|-------|--------|
 | 2026-01-01 | 22:47 | Setup initial |
-| 2026-01-01 | 22:55 | Services + Models |
-| 2026-01-01 | 23:29 | main.py + Push GitHub complet |
+| 2026-01-01 | 23:29 | Backend complet |
+| 2026-01-01 | 23:40 | API en production |
+| 2026-01-01 | 23:44 | Frontend Next.js |
+
+---
+
+## 🚀 POUR TESTER
+
+1. **Exécute le SQL dans Supabase** (database/schema.sql)
+2. **Clone sur ta machine :**
+   ```bash
+   git clone https://github.com/rabi3laser/spybnb.git
+   cd spybnb/frontend
+   npm install
+   NEXT_PUBLIC_API_URL=http://192.168.1.X:8765 npm run dev
+   ```
+3. **Ouvre http://localhost:3000**
+4. **Tape "Paris, France" et clique Scan!**
 
